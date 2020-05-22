@@ -1,0 +1,9 @@
+**TICKETS**
+
+Create channel to communicate with Administration
+All tickets channels art restricted to Administration and ticket opener
+
+```
+-ticket open <reason>
+-ticket close <reason>
+```
