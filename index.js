@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const fs = require('fs')
 const bot = new Discord.Client();
-const { prefix, token } = require("./botsettings.json")
+const config = require("./botsettings.json")
+const prefix = config.prefix;
 bot.commands = new Discord.Collection();
 
 const express = require('express');
@@ -45,12 +46,14 @@ bot.on('message', message => {
 
     let rul = fs.readFileSync('./lang.txt', 'utf-8')
     let tick = fs.readFileSync('./comm.txt', 'utf-8')
-	if(message.content === "-help") {
+    let cm = fs.readFileSync('./cm.txt', 'utf-8')
+    let ch = fs.readFileSync('./ch.txt', 'utf-8')
+	if(message.content === prefix + "help") {
         message.delete()
-        let pages = ['**CHANGE R6 LANGUAGE**', '**CUMMUNICATION WITH ADMINISTRATION**', '**CHANNELS**', ]
+        let pages = ['**CHANGE R6 LANGUAGE**', '**CUMMUNICATION WITH ADMINISTRATION**', '**COMMANDS**', '**CHANNELS**']
         let page = 1
 
-        let textes = [rul, tick]
+        let textes = [rul, tick, cm, ch]
         let text = 1
 
         const embed = new Discord.MessageEmbed()
@@ -66,12 +69,13 @@ bot.on('message', message => {
                 const backwardFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id
                 const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id
 
-                const backwards = msg.createReactionCollector(backwardFilter, { time: 60000 });
-                const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 });
+                const backwards = msg.createReactionCollector(backwardFilter, { time: 120000 });
+                const forwards = msg.createReactionCollector(forwardsFilter, { time: 120000 });
 
                 backwards.on('collect', r => {
                     if(page === 1) return;
                     page--;
+                    text--;
                     embed.setTitle(pages[page-1])
                     embed.setDescription(textes[text-1])
                     embed.setFooter(`Page ${page} of ${pages.length}`)
@@ -81,7 +85,7 @@ bot.on('message', message => {
                 forwards.on('collect', r => {
                     if(page === pages.length) return;
                     page++;
-                    
+                    text++;
                     embed.setTitle(pages[page-1])
                     embed.setDescription(textes[text-1])
                     embed.setFooter(`Page ${page} of ${pages.length}`)
@@ -101,4 +105,4 @@ bot.on('ready', () => {
     console.log('Bot ready');
 });
 
-bot.login(token);
+bot.login(config.token);

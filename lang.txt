@@ -1,6 +1,3 @@
-```Void Edge | 14.05.2020
-v: 14335319```
-
 App. status: im not sure :orange_circle:  [ Actually, it's deprecated and will not be updated any further. Stay tuned for a recode version ]
 Archive status: up-to-date :green_circle: 
 
