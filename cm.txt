@@ -1,7 +1,7 @@
 ```
 Server commands:
 
--ticket open <reason> | This is the best way to communicate with Administration
+!ticket open <reason> | This is the best way to communicate with Administration
 r6s stats <username> <platform> {general|ranked|casual} | Isn't it obvious, huh?
 r6s rank <username> <platform> {region: ncsa|na|emea|eu|apac|asia} {season} | Same as above
 ?rps <rock|papers|scissors> | Just a simple Rock Paper Scissors game but with a bot
