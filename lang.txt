@@ -1,4 +1,4 @@
-App. status: im not sure :orange_circle:  [ Actually, it's deprecated and will not be updated any further. Stay tuned for a recode version ]
+App. status: actually it's online :green_circle:   [ DM me if it's not working for any reason ]
 Archive status: up-to-date :green_circle: 
 
 ```[1] | English```
