@@ -13,7 +13,7 @@ module.exports.run = (bot, message, args) => {
         let cpl = args.slice(2).join(" ")
         //let impcat = '702967866881867996'
         //let imptickch = '706551498049454150'
-        let cat = '702967866881867996'
+        let cat = '714136676208738425'
 
        
 
